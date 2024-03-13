@@ -1,0 +1,34 @@
+body{
+    font-family: Arial;
+    color:black
+}
+button{
+    padding: 0.4rem 1.2rem;
+    font-size: 1.2rem;
+    border: 2px solid black;;
+    border-radius:0.4rem;
+    background-color:white;
+    cursor: pointer;
+}
+button:hover{
+    color:white;
+    background-color: darkslategray;
+    border-color:darkslategray;
+}
+.quiz-header{
+    display:flex;
+    justify-content: center;
+    font-size: 2.4rem;
+    font-weight: bolder;
+    color: darkslategray;
+    margin-bottom: 2rem;
+}
+.quiz-body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.entering{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}

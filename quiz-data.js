@@ -1,4 +1,4 @@
-export const quizData = [
+const quizData = [
   {
     question: "У якім парку знаходзіцца Востраў Птушак?",
     answers: [
@@ -100,3 +100,4 @@ export const quizData = [
     ],
   },
 ];
+export default quizData;
