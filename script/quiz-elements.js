@@ -1,9 +1,17 @@
-export const prg = (text) => `<p>${text}</p>`;
+export const parag = (text) => `<p>${text}</p>`;
 export const button = (name) => `<button>${name}</button>`;
-export const question = (question, selectedAnsw) =>
-  `<div>${prg(question.question)}
+export const prog = (current, total, status) =>
+  `<div class='progress-bar'><div class='progress-value ${
+    status ? "gain" : ""
+  }' 
+  style='
+    width:calc(100%*${current / total});
+    --prev-width:calc(100%*${current > 1 ? (current - 1) / total : 0})
+  '></div></div>`;
+export const question = (quest, answs, selectedAnsw) =>
+  `<div>${parag(quest)}
   <form class='answers-form'>
-    ${question.answers
+    ${answs
       .map(
         (answer, ind) =>
           checkCol(selectedAnsw, answer, ind) + answerCol(answer, ind)
@@ -11,9 +19,9 @@ export const question = (question, selectedAnsw) =>
       .join("")}
   </form></div>`;
 export const result = (score, total, grades) =>
-  prg(score + "/" + total) + comm(score / total, grades);
+  parag(score + "/" + total) + comm(score / total, grades);
 const answerCol = (answer, ind) =>
-  `<label class='answer' for='answ${ind}'>${answer.text}</label>`;
+  `<label class='answer' data-correct=${answer.correct} for='answ${ind}'>${answer.text}</label>`;
 const checkCol = (selectedAnsw, answer, ind) => `
 ${
   selectedAnsw
@@ -43,5 +51,5 @@ const comm = (rate, grades) => {
       comm = grades.hi;
       break;
   }
-  return prg(comm);
+  return parag(comm);
 };
